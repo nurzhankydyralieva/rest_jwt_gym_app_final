@@ -1,7 +1,9 @@
-package com.epam.xstack.validator.generator;
+package com.epam.xstack.validation.generator;
+
+import org.springframework.stereotype.Service;
 
 import java.util.Random;
-
+@Service
 public class PasswordUserNameGenerator {
 
     public String generateRandomPassword() {
@@ -15,6 +17,9 @@ public class PasswordUserNameGenerator {
         }
 
         return password.toString();
+    }
+    public String generateUserName(String firstName, String lastName) {
+        return firstName + "." + lastName;
     }
 
 }

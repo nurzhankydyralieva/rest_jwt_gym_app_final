@@ -1,4 +1,4 @@
-package com.epam.xstack.validator.generator;
+package com.epam.xstack.validation.generator;
 
 import com.epam.xstack.models.entity.User;
 import lombok.RequiredArgsConstructor;
