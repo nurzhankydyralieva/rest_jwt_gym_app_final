@@ -40,10 +40,9 @@ public class User {
         this.password = password;
     }
 
-
-    public String createPassword(String password) {
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        return passwordEncoder.encode(password);
+    public User(UUID id, String userName, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
     }
-
 }
