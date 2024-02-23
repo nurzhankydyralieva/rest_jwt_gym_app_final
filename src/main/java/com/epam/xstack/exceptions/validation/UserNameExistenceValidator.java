@@ -1,4 +1,4 @@
-package com.epam.xstack.validation;
+package com.epam.xstack.exceptions.validation;
 
 import com.epam.xstack.exceptions.dao_exceptions.UserAlreadyExistsException;
 import com.epam.xstack.models.entity.User;

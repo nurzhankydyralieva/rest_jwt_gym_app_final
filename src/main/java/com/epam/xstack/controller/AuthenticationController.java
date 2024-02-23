@@ -1,6 +1,7 @@
 package com.epam.xstack.controller;
 
 import com.epam.xstack.configuration.jwt_config.JwtTokenUtil;
+import com.epam.xstack.exceptions.validation.NotNullValidation;
 import com.epam.xstack.models.dto.authentication_dto.AuthenticationChangeLoginRequestDTO;
 import com.epam.xstack.models.dto.authentication_dto.AuthenticationResponseDTO;
 import com.epam.xstack.models.dto.authentication_dto.LoginRequestDTO;
@@ -18,19 +19,21 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.UUID;
 
 @Api(tags = "Authentication controller")
-@RequestMapping("/auth")
+@RequestMapping("/api/auth/")
 @RestController
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
     private final AuthenticationService authenticationService;
+    private final NotNullValidation validation;
 
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "User authenticated successfully"),
@@ -41,7 +44,8 @@ public class AuthenticationController {
     })
     @ApiOperation(value = "Login the user")
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequestDTO authenticationRequest) throws Exception {
+    public ResponseEntity<LoginResponseDTO> createAuthenticationToken(@Valid @RequestBody LoginRequestDTO authenticationRequest, BindingResult result) throws Exception {
+        validation.nullValidation(result);
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUserName(), authenticationRequest.getPassword()));
         final UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         final String token = jwtTokenUtil.generateToken(userDetails);
@@ -57,7 +61,8 @@ public class AuthenticationController {
     })
     @ApiOperation(value = "Changes login")
     @PutMapping("/update/{id}")
-    public ResponseEntity<AuthenticationResponseDTO> updateLogin(@PathVariable("id") UUID id, @Valid @RequestBody AuthenticationChangeLoginRequestDTO requestDTO) {
+    public ResponseEntity<AuthenticationResponseDTO> updateLogin(@PathVariable("id") UUID id, @Valid @RequestBody AuthenticationChangeLoginRequestDTO requestDTO, BindingResult result) {
+        validation.nullValidation(result);
         return new ResponseEntity<>(authenticationService.authenticationChangeLogin(id, requestDTO), HttpStatus.OK);
     }
 

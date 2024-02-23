@@ -12,9 +12,9 @@ import com.epam.xstack.models.dto.trainer_dto.response.*;
 import com.epam.xstack.models.entity.Trainer;
 import com.epam.xstack.models.enums.Code;
 
-import com.epam.xstack.validation.ActivationValidator;
-import com.epam.xstack.validation.UserNameExistenceValidator;
-import com.epam.xstack.validation.generator.PasswordUserNameGenerator;
+import com.epam.xstack.exceptions.validation.ActivationValidator;
+import com.epam.xstack.exceptions.validation.UserNameExistenceValidator;
+import com.epam.xstack.exceptions.validation.generator.PasswordUserNameGenerator;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

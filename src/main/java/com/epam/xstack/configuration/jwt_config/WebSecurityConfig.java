@@ -61,12 +61,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
-                .antMatchers("/auth/authenticate",
-                        "/auth/update/**",
-                        "/trainees/**",
-                        "/trainers/**",
-                        "/trainings/**",
-                        "/training_types/**").permitAll()
+                .antMatchers("/api/auth/**",
+                        "/api/trainees/**",
+                        "/api/trainers/**",
+                        "/api/training_types/**",
+                        "/api/trainings/**").permitAll()
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

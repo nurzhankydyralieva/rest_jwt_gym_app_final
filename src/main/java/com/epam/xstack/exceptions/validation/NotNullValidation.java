@@ -1,4 +1,4 @@
-package com.epam.xstack.validation;
+package com.epam.xstack.exceptions.validation;
 
 import com.epam.xstack.exceptions.controller_exceptions.NullNotAllowedException;
 import com.epam.xstack.models.enums.Code;

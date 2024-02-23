@@ -1,4 +1,4 @@
-package com.epam.xstack.validation.generator;
+package com.epam.xstack.exceptions.validation.generator;
 
 import org.springframework.stereotype.Service;
 

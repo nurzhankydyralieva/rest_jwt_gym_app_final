@@ -4,7 +4,7 @@ import com.epam.xstack.aspects.training_aspects.annotations.SaveTrainingEndPoint
 import com.epam.xstack.models.dto.training_dto.request.TrainingSaveRequestDTO;
 import com.epam.xstack.models.dto.training_dto.response.TrainingSaveResponseDTO;
 import com.epam.xstack.service.training_service.TrainingService;
-import com.epam.xstack.validation.NotNullValidation;
+import com.epam.xstack.exceptions.validation.NotNullValidation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/trainings")
+@RequestMapping("/api/trainings")
 @RequiredArgsConstructor
 @Api(tags = "Training controller")
 public class TrainingController {

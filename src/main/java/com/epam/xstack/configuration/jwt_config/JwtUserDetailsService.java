@@ -1,7 +1,7 @@
 package com.epam.xstack.configuration.jwt_config;
 
 import com.epam.xstack.models.entity.User;
-import com.epam.xstack.validation.generator.UserNameInDB;
+import com.epam.xstack.exceptions.validation.generator.UserNameInDB;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

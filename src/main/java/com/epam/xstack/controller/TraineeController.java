@@ -4,7 +4,7 @@ import com.epam.xstack.aspects.trainee_aspects.end_points_aspects.annotations.*;
 import com.epam.xstack.models.dto.trainee_dto.request.*;
 import com.epam.xstack.models.dto.trainee_dto.response.*;
 import com.epam.xstack.service.trainee_service.TraineeService;
-import com.epam.xstack.validation.NotNullValidation;
+import com.epam.xstack.exceptions.validation.NotNullValidation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/trainees")
+@RequestMapping("/api/trainees")
 @RequiredArgsConstructor
 @Api(tags = "Trainee controller")
 public class TraineeController {
@@ -32,7 +32,7 @@ public class TraineeController {
     })
     @ApiOperation(value = "Save Trainee to database")
     @SaveTraineeEndPointAspectAnnotation
-    @PostMapping("/save")
+    @PostMapping("/register")
     public ResponseEntity<TraineeRegistrationResponseDTO> saveTrainee(@Valid @RequestBody TraineeRegistrationRequestDTO requestDTO, BindingResult result) {
         validation.nullValidation(result);
         return new ResponseEntity<>(traineeService.saveTrainee(requestDTO), HttpStatus.CREATED);
