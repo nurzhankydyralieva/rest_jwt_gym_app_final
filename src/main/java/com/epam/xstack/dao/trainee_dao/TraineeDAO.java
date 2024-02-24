@@ -7,6 +7,7 @@ import java.util.UUID;
 
 public interface TraineeDAO {
     TraineeRegistrationResponseDTO saveTrainee(TraineeRegistrationRequestDTO requestDTO);
+
     TraineeProfileSelectResponseDTO selectTraineeProfileByUserName(UUID id, TraineeProfileSelectRequestDTO requestDTO);
 
     TraineeProfileUpdateResponseDTO updateTraineeProfile(UUID id, TraineeProfileUpdateRequestDTO requestDTO);

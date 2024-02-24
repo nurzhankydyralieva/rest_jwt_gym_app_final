@@ -4,6 +4,9 @@ import com.epam.xstack.aspects.trainer_aspects.authentication_aspects.annotation
 import com.epam.xstack.dao.trainer_dao.TrainerDAO;
 import com.epam.xstack.exceptions.dao_exceptions.UserIdNotFoundException;
 import com.epam.xstack.exceptions.dao_exceptions.UserNameNotExistsException;
+import com.epam.xstack.exceptions.validation.ActivationValidator;
+import com.epam.xstack.exceptions.validation.UserNameExistenceValidator;
+import com.epam.xstack.exceptions.validation.generator.PasswordUserNameGenerator;
 import com.epam.xstack.mapper.trainee_mapper.TraineeMapper;
 import com.epam.xstack.mapper.trainer_mapper.*;
 import com.epam.xstack.mapper.training_mapper.TrainingListMapper;
@@ -11,10 +14,6 @@ import com.epam.xstack.models.dto.trainer_dto.request.*;
 import com.epam.xstack.models.dto.trainer_dto.response.*;
 import com.epam.xstack.models.entity.Trainer;
 import com.epam.xstack.models.enums.Code;
-
-import com.epam.xstack.exceptions.validation.ActivationValidator;
-import com.epam.xstack.exceptions.validation.UserNameExistenceValidator;
-import com.epam.xstack.exceptions.validation.generator.PasswordUserNameGenerator;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

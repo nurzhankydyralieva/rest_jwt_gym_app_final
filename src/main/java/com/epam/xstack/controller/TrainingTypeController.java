@@ -2,9 +2,9 @@ package com.epam.xstack.controller;
 
 import com.epam.xstack.aspects.training_type.annotations.SaveTrainingTypeEndPointAspectAnnotation;
 import com.epam.xstack.aspects.training_type.annotations.SelectAllTrainingTypeEndPointAspectAnnotation;
+import com.epam.xstack.exceptions.validation.NotNullValidation;
 import com.epam.xstack.models.dto.training_type_dto.TrainingTypeDTO;
 import com.epam.xstack.service.training_type_service.TrainingTypeService;
-import com.epam.xstack.exceptions.validation.NotNullValidation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

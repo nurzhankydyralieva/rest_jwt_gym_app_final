@@ -65,5 +65,4 @@ public class AuthenticationController {
         validation.nullValidation(result);
         return new ResponseEntity<>(authenticationService.authenticationChangeLogin(id, requestDTO), HttpStatus.OK);
     }
-
 }

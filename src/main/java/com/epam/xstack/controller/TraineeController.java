@@ -1,10 +1,10 @@
 package com.epam.xstack.controller;
 
 import com.epam.xstack.aspects.trainee_aspects.end_points_aspects.annotations.*;
+import com.epam.xstack.exceptions.validation.NotNullValidation;
 import com.epam.xstack.models.dto.trainee_dto.request.*;
 import com.epam.xstack.models.dto.trainee_dto.response.*;
 import com.epam.xstack.service.trainee_service.TraineeService;
-import com.epam.xstack.exceptions.validation.NotNullValidation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -25,6 +25,7 @@ import java.util.UUID;
 public class TraineeController {
     private final TraineeService traineeService;
     private final NotNullValidation validation;
+
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "User saved successfully"),
             @ApiResponse(code = 401, message = "Bad credentials"),
@@ -37,6 +38,7 @@ public class TraineeController {
         validation.nullValidation(result);
         return new ResponseEntity<>(traineeService.saveTrainee(requestDTO), HttpStatus.CREATED);
     }
+
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "User selected successfully"),
             @ApiResponse(code = 401, message = "Bad credentials"),

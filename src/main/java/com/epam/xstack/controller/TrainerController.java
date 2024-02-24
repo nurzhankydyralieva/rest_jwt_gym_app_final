@@ -1,10 +1,10 @@
 package com.epam.xstack.controller;
 
 import com.epam.xstack.aspects.trainer_aspects.end_points_aspects.annotations.*;
+import com.epam.xstack.exceptions.validation.NotNullValidation;
 import com.epam.xstack.models.dto.trainer_dto.request.*;
 import com.epam.xstack.models.dto.trainer_dto.response.*;
 import com.epam.xstack.service.trainer_service.TrainerService;
-import com.epam.xstack.exceptions.validation.NotNullValidation;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

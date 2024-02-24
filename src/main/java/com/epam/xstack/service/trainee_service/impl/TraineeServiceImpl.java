@@ -18,6 +18,7 @@ public class TraineeServiceImpl implements TraineeService {
     public TraineeRegistrationResponseDTO saveTrainee(TraineeRegistrationRequestDTO requestDTO) {
         return traineeDAO.saveTrainee(requestDTO);
     }
+
     @Override
     public TraineeProfileSelectResponseDTO selectTraineeProfileByUserName(UUID id, TraineeProfileSelectRequestDTO requestDTO) {
         return traineeDAO.selectTraineeProfileByUserName(id, requestDTO);
